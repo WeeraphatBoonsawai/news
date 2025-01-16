@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+{
+    Schema::table('news', function (Blueprint $table) {
+        $table->integer('views')->default(0); // จำนวนการอ่าน, ค่าเริ่มต้น 0
+    });
+}
+
+public function down()
+{
+    Schema::table('news', function (Blueprint $table) {
+        $table->dropColumn('views');
+    });
+}
+
+};
